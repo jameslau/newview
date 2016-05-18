@@ -51,13 +51,13 @@
 
 	/* Layer with position absolute in order to have it over the video
 	* --------------------------------------- */
-	#section0 .layer{
+	/*#section0 .layer{
 		position: absolute;
 		z-index: 4;
 		width: 100%;
 		left: 0;
 		top: 43%;
-	}
+	}*/
 
 	/*solves problem with overflowing video in Mac with Chrome */
 	#section0{
@@ -70,10 +70,8 @@
 		bottom: 25px;
 	}
 
-	/* Bottom menu
-	* --------------------------------------- */
-	#infoMenu li a {
-		color: #fff;
+	nav ul#menu > li > a {
+		color: red;
 	}
 
 	</style>
@@ -94,13 +92,10 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				// anchors: ['firstPage', 'secondPage', '3rdPage'],
-				sectionsColor: ['#8FB98B', '#DE564B', '#EAE1C0'],
 				anchors: ['1stPage', '2ndPage', '3rdPage', '4thPage'],
 				menu: '#menu',
-				scrollingSpeed: 1000
-				// add line for page indicators
-				//slidesNavigation: true,
+				sectionsColor: ['#8FB98B', '#DE564B', '#EAE1C0'],
+				scrollingSpeed: 1000,
 				afterRender: function(){
 					//playing the video
 					$('video').get(0).play();
@@ -111,45 +106,50 @@
 
 </head>
 <body>
+	<nav id="mainnav">
+		<ul id="menu">
+			<li data-menuanchor="1stPage"><a href="#slide1">Community</a></li>
+			<li data-menuanchor="2ndPage"><a href="#slide2">Location</a></li>
+			<li data-menuanchor="3rdPage"><a href="#slide3">Academics</a></li>
+			<li data-menuanchor="4thPage"><a href="#slide4">Success</a></li>
+		</ul>
+	</nav>
+	<div id="fullpage">
+		<div class="section" id="section0">
+			<!-- slide with video -->	
+		    <div class="slide active" id="slide1" data-anchor="1stPage">
+				<div class="section" id="section1">
+					<div class="intro">
+						<video autoplay loop muted id="myVideo">
+							<source src="imgs/flowers.mp4" type="video/mp4">
+							<source src="imgs/flowers.webm" type="video/webm">
+						</video>
+					</div>
+				</div>
+			</div>
 
-<ul id="menu">
-	<li data-menuanchor="1stPage"><a href="#slide1">Community</a></li>
-	<li data-menuanchor="2ndPage"><a href="#slide2">Location</a></li>
-	<li data-menuanchor="3rdPage"><a href="#slide3">Academics</a></li>
-	<li data-menuanchor="4thPage"><a href="#slide4">Success</a></li>
-</ul>
+			<!-- slide two -->
+		    <div class="slide" id="slide2" data-anchor="2ndPage">
+		    	<div class="section" id="section2">	
+					<h1>Slide 2</h1>
+					<p></p>
+				</div>
+			</div>
 
-<div id="fullpage">
-	<div class="section" id="section0">
-		
-		<!-- slide with video -->	
-	    <div class="slide" id="slide1" data-anchor="1stPage">
-			<div class="intro">
-				<video autoplay loop muted id="myVideo">
-					<source src="imgs/flowers.mp4" type="video/mp4">
-					<source src="imgs/flowers.webm" type="video/webm">
-				</video>
+			<!-- slide three -->
+			<div class="slide" id="slide3" data-anchor="3rdPage">
+				<div class="section" id="section3">
+					<h1>Slide 3</h1>
+				</div>
+			</div>	
+
+			<!-- slide four -->
+			<div class="slide" id="slide4" data-anchor="4thPage">
+				<div class="section" id="section4">
+					<h1>Slide 4</h1>
+				</div>
 			</div>
 		</div>
-
-		<!-- slide two -->
-	    <div class="slide" id="slide2" data-anchor="2ndPage">
-			<h1>Slide 2</h1>
-			<p></p>
-		</div>
-
-		<!-- slide three -->
-		<div class="slide" id="slide3" data-anchor="3rdPage">
-			<h1>Slide 3</h1>
-		</div>	
-
-		<!-- slide four -->
-		<div class="slide" id="slide4" data-anchor="4thPage">
-			<h1>Slide 4</h1>
-		</div>
 	</div>
-</div>
-
-
 </body>
 </html>
